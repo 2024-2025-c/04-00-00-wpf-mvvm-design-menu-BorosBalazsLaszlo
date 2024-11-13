@@ -13,25 +13,26 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels
         private ControlPanelViewModel _controlPanelViewModel;
         private SchoolCitizensViewModel _schoolCitizensViewModel;
         private SchoolClassesViewModel _schoolClassesViewModel;
+
         public MainViewModel()
         {
             _controlPanelViewModel = new ControlPanelViewModel();
             _schoolCitizensViewModel = new SchoolCitizensViewModel();
-            _schoolCitizensViewModel = new SchoolClassesViewModel();
+            _schoolClassesViewModel = new SchoolClassesViewModel();
         }
 
         public MainViewModel(
-            ControlPanelViewModel controlPanelViewModel,
+            ControlPanelViewModel controlPanelViewModel,  // golf ütő - dependency injection
             SchoolCitizensViewModel schoolCitizensViewModel,
             SchoolClassesViewModel schoolClassesViewModel
             )
         {
             _controlPanelViewModel = controlPanelViewModel;
             _schoolCitizensViewModel = schoolCitizensViewModel;
-            _schoolClassesViewModel = schoolClassesViewModel;
+            _schoolClassesViewModel= schoolClassesViewModel;
 
 
-            CurrentChildView = _controlPanelViewModel;
+            // CurrentChildView = _controlPanelViewModel; // amikor elindul a program legyen kiválasztott menüpont
             ShowDashbord();
         }
 
@@ -60,10 +61,13 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels
             CurrentChildView = _schoolCitizensViewModel;
         }
 
+        // SchoolClass menüpont meghívása
         [RelayCommand]
         public void ShowSchoolClasses()
         {
             Caption = "Osztályok";
+            Icon = IconChar.ChalkboardUser;
+            CurrentChildView = _schoolClassesViewModel;
         }
     }
 }

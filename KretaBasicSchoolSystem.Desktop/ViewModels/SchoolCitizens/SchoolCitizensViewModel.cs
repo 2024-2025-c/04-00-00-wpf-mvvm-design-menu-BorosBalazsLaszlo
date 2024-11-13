@@ -1,8 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using KretaBasicSchoolSystem.Desktop.ViewModels.Base;
-using KretaBasicSchoolSystem.Desktop.ViewModels.SchoolClasses;
-using System;
 
 namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
 {
@@ -30,11 +28,6 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
         public void ShowStudentView()
         {
             CurrentSchoolCitizensChildView = _studentViewModel;
-        }
-
-        public static implicit operator SchoolCitizensViewModel(SchoolClassesViewModel v)
-        {
-            throw new NotImplementedException();
         }
     }
 }
