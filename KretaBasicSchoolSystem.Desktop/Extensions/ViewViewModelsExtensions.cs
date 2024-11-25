@@ -3,12 +3,14 @@ using KretaBasicSchoolSystem.Desktop.ViewModels.ControlPanel;
 using KretaBasicSchoolSystem.Desktop.ViewModels.Login;
 using KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens;
 using KretaBasicSchoolSystem.Desktop.ViewModels.SchoolClasses;
+using KretaBasicSchoolSystem.Desktop.ViewModels.SchoolGrades;
 using KretaBasicSchoolSystem.Desktop.ViewModels.SchoolSubjects;
 using KretaBasicSchoolSystem.Desktop.Views;
 using KretaBasicSchoolSystem.Desktop.Views.ControlPanel;
 using KretaBasicSchoolSystem.Desktop.Views.Login;
 using KretaBasicSchoolSystem.Desktop.Views.SchoolCitizens;
 using KretaBasicSchoolSystem.Desktop.Views.SchoolClasses;
+using KretaBasicSchoolSystem.Desktop.Views.SchoolGrades;
 using KretaBasicSchoolSystem.Desktop.Views.SchoolSubjects;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -50,24 +52,79 @@ namespace KretaDesktop.Extensions
             services.AddSingleton<StudentViewModel>();
             services.AddSingleton<StudentView>(s => new StudentView()
             {
-                DataContext = s.GetRequiredService<StudentViewModel>()
+                DataContext = s.GetRequiredService<StudentView>()
             });
 
-            //SchoolClass
-            services.AddSingleton<SchoolClassesViewModel>();
-            services.AddSingleton<SchoolClassesView>(s => new SchoolClassesView
+            // School Citizens
+            // Teachers
+            services.AddSingleton<TeacherViewModel>();
+            services.AddSingleton<TeacherView>(s => new TeacherView()
             {
-                    DataContext = s.GetRequiredService<SchoolClassesViewModel>()
-                }                
-            );
+                DataContext = s.GetRequiredService<TeacherView>()
+            });
 
-            //SchoolSubjects
+            // School Citizens
+            // Parents
+            services.AddSingleton<ParentViewModel>();
+            services.AddSingleton<ParentView>(s => new ParentView()
+            {
+                DataContext = s.GetRequiredService<ParentView>()
+            });
+
+            //School Classes
+            services.AddSingleton<SchoolClassesViewModel>();
+            services.AddSingleton<SchoolClassesView>(s => new SchoolClassesView()
+            {
+                DataContext = s.GetRequiredService<SchoolClassesViewModel>()
+            });
+
+
+            //School Subjects
             services.AddSingleton<SchoolSubjectsViewModel>();
-            services.AddSingleton<SchoolSubjectsView>(s => new SchoolSubjectsView
+            services.AddSingleton<SchoolSubjectsView>(s => new SchoolSubjectsView()
             {
                 DataContext = s.GetRequiredService<SchoolSubjectsViewModel>()
-            }
-            );
+            });
+
+            //School Grades
+            services.AddSingleton<SchoolGradesViewModel>();
+            services.AddSingleton<SchoolGradesView>(s => new SchoolGradesView()
+            {
+                DataContext = s.GetRequiredService<SchoolGradesViewModel>()
+            });
+
+            //School Grades
+            //Current lesson
+            services.AddSingleton<CurrentLessonViewModel>();
+            services.AddSingleton<CurrentLessonView>(s => new CurrentLessonView()
+            {
+                DataContext = s.GetRequiredService<CurrentLessonViewModel>()
+            });
+
+            //School Grades
+            //Classes taught
+            services.AddSingleton<TeachingViewModel>();
+            services.AddSingleton<TeachingView>(s => new TeachingView()
+            {
+                DataContext = s.GetRequiredService<TeachingViewModel>()
+            });
+
+            //School Grades
+            //End of year closing
+            services.AddSingleton<EndingYearViewModel>();
+            services.AddSingleton<EndingYear>(s => new EndingYear()
+            {
+                DataContext = s.GetRequiredService<EndingYearViewModel>()
+            });
+
+            //School Grades
+            //End of semester closing
+            services.AddSingleton<EndingSemester>();
+            services.AddSingleton<EndingSemesterView>(s => new EndingSemesterView()
+            {
+                DataContext = s.GetRequiredService<EndingSemester>()
+            });
+
         }
     }
 }

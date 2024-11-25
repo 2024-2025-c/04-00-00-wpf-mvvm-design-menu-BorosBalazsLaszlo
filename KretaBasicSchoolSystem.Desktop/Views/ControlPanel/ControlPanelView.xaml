@@ -9,6 +9,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label>Vezérlőpult</Label>
+        <Label>Vezérlőpúlt</Label>
     </Grid>
 </UserControl>
