@@ -74,7 +74,7 @@
                                 Tag="{StaticResource colorMidleGreen}"
                                 Command="{Binding ShowSchoolGradesCommand}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="ListNumeric" Style="{StaticResource menuButtonIcon}"/>
+                            <fa:IconImage Icon="UserGraduate" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Osztályzatok" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
